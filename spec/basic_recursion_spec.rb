@@ -37,4 +37,14 @@ describe 'Recursion' do
       expect(fibonacci(13)).to eq(144)
     end
   end
+
+  context 'The unhappy_feet method' do
+    it 'counts the number of penguin feet.' do
+      expect(unhappy_feet(0)).to eq(0)
+      expect(unhappy_feet(1)).to eq(1)
+      expect(unhappy_feet(2)).to eq(3)
+      expect(unhappy_feet(5)).to eq(7)
+      expect(unhappy_feet(10)).to eq(15)
+    end
+  end
 end

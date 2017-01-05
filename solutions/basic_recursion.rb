@@ -24,6 +24,9 @@ def fibonacci(n)
 end
 
 def unhappy_feet(n)
+  return 0 if n.zero?
+
+  (n.odd? ? 1 : 2) + unhappy_feet(n - 1)
 end
 
 def triangle(n)
