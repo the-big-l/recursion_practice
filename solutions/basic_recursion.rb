@@ -29,19 +29,32 @@ def unhappy_feet(n)
   (n.odd? ? 1 : 2) + unhappy_feet(n - 1)
 end
 
-def triangle(n)
+def block_count(h)
+  return 0 if h.zero?
+
+  h + block_count(h - 1)
 end
 
-def sumDigits
+def sum_of_digits(n)
+  return n if n < 10
+
+  sum_of_digits(n / 10) + sum_of_digits(n % 10)
 end
 
-def count7(n)
-end
-def count8(n)
+def count_seven(n)
+  return (n == 7 ? 1 : 0) if n < 10
+
+  count_seven(n / 10) + count_seven(n % 10)
 end
 
-def powerN(n)
+def lucky_sevens(n)
+  return (n == 7 ? 1 : 0) if n < 10
+
+  (n % 1000 == 777 ? 4 : 0) + lucky_sevens(n % 10) + lucky_sevens(n / 10)
 end
 
-def countX(n)
+def power(n)
+end
+
+def count_x(n)
 end
