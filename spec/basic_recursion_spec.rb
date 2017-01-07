@@ -119,17 +119,65 @@ describe 'Using recursion' do
   end
 
   context 'the lucky_sevens method' do
-    it "counts the number of '7's and '777's in a number" do
+    it "counts the number of '7's in a number." do
       expect(lucky_sevens(0)).to eq(0)
       expect(lucky_sevens(17)).to eq(1)
+    end
+
+    it "adds a bonus 4 points to triple sevens ('777')" do
       expect(lucky_sevens(777)).to eq(7)
       expect(lucky_sevens(777_467)).to eq(8)
-      expect(lucky_sevens(7_077_377_677)).to eq(7)
+      expect(lucky_sevens(7_077_377_776)).to eq(15)
     end
 
     it 'and calls itself recursively.' do
       expect(self).to receive(:lucky_sevens).at_least(:twice).and_call_original
       lucky_sevens(777_997)
+    end
+  end
+
+  context 'the power method' do
+    it 'raises a base to the nth power' do
+      expect(power(10, 0)).to eq(1)
+      expect(power(7, 1)).to eq(7)
+      expect(power(2, 8)).to eq(256)
+      expect(power(10, 3)).to eq(1000)
+      expect(power(99, 2)).to eq(9801)
+    end
+
+    it 'and calls itself recursively.' do
+      expect(self).to receive(:power).at_least(:twice).and_call_original
+      power(2, 10)
+    end
+  end
+
+  context 'the count_x method' do
+    it "counts the number of lowercase 'x's in a string" do
+      expect(count_x('a')).to eq(0)
+      expect(count_x('hx')).to eq(1)
+      expect(count_x('axelxray')).to eq(2)
+      expect(count_x('the xx')).to eq(2)
+      expect(count_x('xXxKwixKopesxXx')).to eq(5)
+    end
+
+    it 'and calls itself recursively.' do
+      expect(self).to receive(:count_x).at_least(:twice).and_call_original
+      count_x('xXxX')
+    end
+  end
+
+  context 'the count_me method' do
+    it "counts the number of lowercase 'me's in a string" do
+      expect(count_me('oem')).to eq(0)
+      expect(count_me('me')).to eq(1)
+      expect(count_me('memes')).to eq(2)
+      expect(count_me('men and women')).to eq(2)
+      expect(count_me('mememememe')).to eq(5)
+    end
+
+    it 'and calls itself recursively.' do
+      expect(self).to receive(:count_me).at_least(:twice).and_call_original
+      count_me('meme')
     end
   end
 end

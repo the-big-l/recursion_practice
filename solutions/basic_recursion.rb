@@ -53,8 +53,25 @@ def lucky_sevens(n)
   (n % 1000 == 777 ? 4 : 0) + lucky_sevens(n % 10) + lucky_sevens(n / 10)
 end
 
-def power(n)
+def power(b, n)
+  return 1 if n.zero?
+
+  b * power(b, n - 1)
 end
 
-def count_x(n)
+def count_x(str)
+  return (str == 'x' ? 1 : 0) if str.length <= 1
+
+  mid = str.length / 2
+
+  str1 = str[0...mid]
+  str2 = str[mid..-1]
+
+  count_x(str1) + count_x(str2)
+end
+
+def count_me(string)
+  return (string == 'me' ? 1 : 0) if string.length <= 2
+
+  count_me(string[0..1]) + count_me(string[1..-1])
 end
