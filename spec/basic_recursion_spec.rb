@@ -1,7 +1,7 @@
 require 'rspec'
-# uncomment below line and delete this line for final
-# require 'basic_recursion'
-require_relative '../solutions/basic_recursion'
+require 'basic_recursion'
+# below line used for testing solutions
+# require_relative '../solutions/basic_recursion'
 
 describe 'Using recursion' do
   context 'the factorial method' do
